@@ -1,0 +1,51 @@
+ul {
+    margin: 0;
+}
+
+ul ul {
+    position: absolute;
+    opacity: 0;
+}
+
+ul.active > tree-item > div > ul{
+    position: static;
+    opacity: 1;
+    transition: opacity 400ms ease-in-out;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    background-color: #009688;
+    color: #ffffff;
+    border: 1px solid #00665c;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: 200ms ease-in-out;
+}
+
+.tree-item.parent {
+    cursor: pointer;
+}
+
+.tree-item:hover {
+    background-color: lighten(#009688, 5%)
+}
+
+.tree-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 15px;
+}
+
+.expand {
+    margin-left: 15px;
+    cursor: pointer;
+    transition: 50ms ease-out;
+}
+
+ul.active > li .expand {
+    transform: rotate(90deg);
+}

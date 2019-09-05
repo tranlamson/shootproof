@@ -1,0 +1,20 @@
+<div *ngIf="item">
+    <ul class="list" [ngClass]="{'active' : toggle}">
+        <li class="tree-item" [ngClass]="{'parent' : item.children !== undefined}" (click)="toggleCascade(item)">
+            <img src={{item.thumbnail.href}} alt={{item.thumbnail.description}} title={{item.thumbnail.description}} />
+            <span>{{item.name}}</span>
+            <span *ngIf="item.children !== undefined" class="expand"><span class="cursor">►</span></span>
+        </li>
+        <tree-item [childrenArray]="item.children"></tree-item>
+    </ul>
+</div>
+<div *ngFor="let item of childrenArray">
+    <ul class="list" [ngClass]="{'active' : toggle}">
+        <li class="tree-item" [ngClass]="{'parent' : item.children !== undefined}" (click)="toggleCascade(item)">
+            <img src={{item.thumbnail.href}} alt={{item.thumbnail.description}} title={{item.thumbnail.description}} />
+            <span>{{item.name}}</span>
+            <span *ngIf="item.children !== undefined" class="expand"><span class="cursor">►</span></span>
+        </li>
+        <tree-item [childrenArray]="item.children"></tree-item>
+    </ul>
+</div>
